@@ -1,0 +1,35 @@
+[workspace.package]
+version = "1.0.1"
+rust-version = "1.66"
+edition = "2021"
+license = "MIT"
+authors = ["0x6368616e67"]
+documentation = "https://docs.rs/xxx"
+repository = "https://github.com/0x6368616e67/xxx"
+homepage = "https://github.com/0x6368616e67/xxx"
+keywords = ["rust", "ethers", "ethereum", "web3"]
+
+[workspace]
+members = [
+    "crates/cli"
+]
+exclude = []
+
+
+[workspace.dependencies]
+tracing = "0.1.37"
+
+
+[profile.dev]
+# Disabling debug info speeds up builds a bunch
+debug = 0
+
+[profile.release]
+# Optimize for binary size, but keep loop vectorization
+opt-level = "s"
+# Performance optimizations
+lto = "fat"
+debug = 0
+strip = true
+panic = "abort"
+codegen-units = 1
