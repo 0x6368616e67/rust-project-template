@@ -5,4 +5,12 @@ edition = "2021"
 
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
 
+[[bin]]
+name = "cmd1"
+path = "src/bin/cmd1.rs"
+
+[[bin]]
+name = "cmd2"
+path = "src/bin/cmd2.rs"
+
 [dependencies]
