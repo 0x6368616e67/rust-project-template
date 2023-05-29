@@ -17,3 +17,5 @@ git-version.workspace = true
 anyhow.workspace = true
 clap.workspace = true
 const-str.workspace = true
+
+config = {path="../config"}

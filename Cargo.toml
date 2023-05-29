@@ -11,7 +11,8 @@ keywords = ["rust", "ethers", "ethereum", "web3"]
 
 [workspace]
 members = [
-    "crates/cli"
+    "crates/cli",
+    "crates/config"
 ]
 exclude = []
 
@@ -23,6 +24,9 @@ git-version = "0.3.5"
 anyhow = "1.0.64"
 clap = { version = "3.2.17", features = ["derive"] }
 const-str = "0.5.3"
+serde = { version = "1", features = ["derive"] }
+toml = "0.7.4"
+serde_ignored = "0.1"
 
 
 [profile.dev]

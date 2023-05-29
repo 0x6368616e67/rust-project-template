@@ -1,0 +1,6 @@
+archive = true
+view_client_threads = 3
+[rpc]
+addr = "127.0.0.1:8080"
+
+

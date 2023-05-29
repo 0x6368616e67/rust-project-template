@@ -1,11 +1,11 @@
 mod commands;
 mod options;
+mod run;
 
 use tracing::{info};
 use tracing_subscriber::{self};
 use clap::Parser;
 use commands::Commands;
-use options::Options;
 
 const GIT_REVISION: &str = {
     if let Some(revision) = option_env!("GIT_REVISION") {
@@ -31,8 +31,6 @@ const VERSION: &str = const_str::concat!(env!("CARGO_PKG_VERSION"), "-", GIT_REV
     version = VERSION,
 )]
 struct CmdArgs {
-    #[clap(flatten)]
-    opts: Options,
     #[clap(subcommand)]
     commands: Commands,
 }
@@ -52,10 +50,8 @@ fn main() -> Result<(), anyhow::Error>{
 
     info!("execute with version {}", VERSION);
 
-
-    let config_file = args.opts.config;
     match args.commands {
-        Commands::Run(cmd) => cmd.run(&config_file),
+        Commands::Run(cmd) => cmd.run(),
     };
 
     Ok(())
